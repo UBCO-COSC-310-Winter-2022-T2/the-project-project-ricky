@@ -16,7 +16,8 @@ In order for students to feel compelled to interact without the fear of being wr
 
 ### Proto-persona for user
 
-This is just a temporary user persona. Mac if you can make all of these into a nice persona thingy please thank you.
+![mj](img/personamj.png)
+*please excuse the watermark
 
 Name: Michael Jordan
 
