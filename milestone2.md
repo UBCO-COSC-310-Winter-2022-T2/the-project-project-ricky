@@ -49,18 +49,22 @@ Again this is not final and temporary. Mac if you can make all these steps into 
 
 ### Functional Requirements
 
-- The system should allow instructors to create and customize polls and quizzes, incorporating multiple choice or single-choice questions.
-- The system should allow instructors to launch polls and quizzes quickly and easily during class.
-- The system should allow instructors to either share their screens or have a pre-set written or image question.
-- The system should notify instructors of student responses in real-time using the Observer design pattern.
-- The system should provide reports and analytics on student performance and learning outcomes.
-- The system should incorporate game elements to keep students engaged, such as a leaderboard with a top 10.
-- The system should allow instructors to send a personalized message per grade-range to students.
-- ?(The system should integrate with learning management systems like Canvas or Blackboard.) Not sure if this is realizable.
-- The system should protect student data and ensure anonymity from other students.
+- The system will allow instructors to create and customize polls and quizzes, incorporating multiple choice or single-choice questions.
+- The system will allow instructors to either share their screens or have a pre-set written or image question.
+- The system will notify instructors of student responses in real-time using the Observer design pattern.
+- The system will provide reports and analytics on student performance and learning outcomes.
+- The system will incorporate game elements to keep students engaged, such as a leaderboard with a top 10.
+- The system will allow instructors to send a personalized message per grade-range to students.
+- ?(The system should integrate with learning management systems like Canvas or Blackboard.) Not sure if this is realistic.
+- The system will protect student data and ensure anonymity from other students.
+- The system will allow students and instructors to create an account based on their respective roll.
+- The system will allow student users to join a class.
+- the system will allow instructors to create a class
+- the system will allow studnet users to answer polls/quizes
 
 ### Non-functional Requirements
 
+- The system should allow instructors to launch polls and quizzes quickly and easily during class. 
 - The system should have instant-response time(less than 2s will do) for student's response.
 - The system should be accessible from different browsers and devices.
 - The system must not disclose any personal information about students and instructors apart from their name.
