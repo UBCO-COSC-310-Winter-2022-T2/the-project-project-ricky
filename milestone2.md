@@ -53,7 +53,7 @@ Again this is not final and temporary. Mac if you can make all these steps into 
 - The system will allow instructors to create and customize polls and quizzes, incorporating multiple choice or single-choice questions.
 - The system will allow instructors to either share their screens or have a pre-set written or image question.
 - The system will notify instructors of student responses in real-time using the Observer design pattern.
-- The system will provide reports and analytics on student performance and learning outcomes.
+- The system will be able to correctly present and store a students total grade for a class.
 - The system will incorporate game elements to keep students engaged, such as a leaderboard with a top 10.
 - The system will allow instructors to send a personalized message per grade-range to students.
 - ?(The system should integrate with learning management systems like Canvas or Blackboard.) Not sure if this is realistic.
