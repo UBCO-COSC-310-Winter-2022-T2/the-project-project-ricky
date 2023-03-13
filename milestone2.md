@@ -6,7 +6,7 @@ The project our team is approaching is the iClicker clone.
 
 The goal of this project is to develop a web-based platform that will allow instructors to perform real-time polling and receive instant feedback from students. This platform will evidently be modeled after the iClicker service but improve on some of its features to give instructors more flexibility in questions.
 
-The platform will temporarily be referred to as EduPoll until the team comes up with a better name. EduPoll will only support multi-choice question as its goal is to enable fast,real-time, in-class asssessment to keep students engaged and test their knowledge. In order for instructors to be able to view student responses in real-time, the system will integrate the Behavioural Observer Pattern that defines a relationship between objects where a subject object maintains a list of its dependents observers. This will allow instructors to be notified automatically of any state changes when students answer.
+The platform will temporarily be referred to as EduPoll until the team comes up with a better name. EduPoll will only support multi-choice question as its goal is to enable fast,real-time, in-class assessment to keep students engaged and test their knowledge. In order for instructors to be able to view student responses in real-time, the system will integrate the Behavioral Observer Pattern that defines a relationship between objects where a subject object maintains a list of its dependents observers. This will allow instructors to be notified automatically of any state changes when students answer.
 
 Furthermore, EduPoll will be created using a microservice architecture, thus broken down into smaller, independent services interacting with each other using APIs. In order for the system to support a SOA architecture, it will incorporate the structural facade design pattern in order to provide a simplified interface between the users and the underlying system.
 
@@ -31,7 +31,7 @@ Job Title: Head of the chemistry department at UBC
 
 Background: Michael has had a brilliant academic career and got his phD young at only 25. He since has been teaching at large universities for over a decade. Being so young, he considers himself a tech-savyy and stays up to date with recent technologies. As his peers consider him a pioneer in his field, he is always looking for new ways to enhance his student's learning experiences.
 
-Goals: Professor Jordan's goal is to foster his student's love for chemistry and suceed in his classes. He wants to make sure the lectures are engaging and that his students are able to understand and apply the material they are learning. He has long been looking for a way to continuously assess students in class not for grades but for learning.
+Goals: Professor Jordan's goal is to foster his student's love for chemistry and succeed in his classes. He wants to make sure the lectures are engaging and that his students are able to understand and apply the material they are learning. He has long been looking for a way to continuously assess students in class not for grades but for learning.
 
 How will Michael Jordan interact with EduPoll: Michael would like the platform to be very customizable, he would like to be able to share his screen while starting his questions or upload a pre-set image to his questions so that his students can see the question on their screen. He would also like to be able to visualize his students answer in real-time as people are answering the poll. His ultimate goal is to identify student's gap of knowledge and adapt his lectures and cursus accordingly.
 
@@ -39,7 +39,7 @@ How will Michael Jordan interact with EduPoll: Michael would like the platform t
 
 Again this is not final and temporary. Mac if you can make all these steps into a nice journey line diagram please
 
-1. Professor Jordan introduces the EduPoll platform to his students at the beginning of the year and explains how it will be used throughout the year as a continously graded assessment.
+1. Professor Jordan introduces the EduPoll platform to his students at the beginning of the year and explains how it will be used throughout the year as a continuously graded assessment.
 2. During lectures, he tries to fit at least 5 EduPoll questions to his students in the platform, always related to what they're currently studying and chronologically logical.
 3. If all the students answer correctly, Michael distributes candies or chocolates in the class as an incentive for learning.
 4. As the system keeps every student as an object, Michael does not have to manually increment each student's score.
@@ -61,7 +61,7 @@ Again this is not final and temporary. Mac if you can make all these steps into 
 - The system will allow students and instructors to create an account based on their respective roll.
 - The system will allow student users to join a class.
 - the system will allow instructors to create a class
-- the system will allow studnet users to answer polls/quizes
+- the system will allow student users to answer polls/quizzes
 
 ### Non-functional Requirements
 
@@ -152,11 +152,11 @@ Main scenario:
 
 Primary Actor: Instructor
 
-Descirption: The instructor wants to create a quiz/poll to assess their students' knowledge of a specific subject or concept. this use case combines creating a quiz or poll, where a quiz is a series of polls (questions).
+Description: The instructor wants to create a quiz/poll to assess their students' knowledge of a specific subject or concept. this use case combines creating a quiz or poll, where a quiz is a series of polls (questions).
 
 Pre-conditions: The instructor has an account and is signed in to their account.
 
-Post-conditions: The instructor has successfully created a quiz/poll and is able to save the quiz to thier account and also luanch the quiz if desired.
+Post-conditions: The instructor has successfully created a quiz/poll and is able to save the quiz to their account and also launch the quiz if desired.
 
 Main Scenario:
 
@@ -179,7 +179,7 @@ Extensions:
 
 Primary Actor: Instructor
 
-Descirption: The instructor wants to modifiy an existing quiz or poll.
+Description: The instructor wants to modify an existing quiz or poll.
 
 Pre-conditions: The instructor has an account, is signed in to their account and has already created a quiz or poll .
 
@@ -194,4 +194,40 @@ Main Scenario:
 
 #### Use Case 7. Start previously created and saved Quiz/Poll
 
+Primary Actor: Instructor
+
+Description: The Instructor starts the quiz/poll and the quiz/poll appears on current students devices
+
+Pre-condition: Instructor is logged in and has a quiz/poll created
+
+Post-condition: quiz/poll appears on current students devices
+
+Main Scenario:
+
+1. The instructor has a quiz/poll created
+2. The instructor publishes quiz/poll
+3. Quiz/poll is displayed on students devices
+
 #### Use Case 8. Answer Quiz/poll
+
+Primary Actor: Student
+
+Description: Student answers the quiz/poll that was started by Instructor
+
+Pre-condition: Student is logged in and enrolled in a class and instructor starts a quiz/poll
+
+Post-condition: students answers are stored and results are displayed
+
+Main Scenario:
+
+1. Instructor starts a quiz/poll
+2. Quiz/poll is displayed on students devices
+3. Instructor ends quiz/poll
+4. Students record their answer on device
+5. Students answers are stored
+6. Students answers are displayed correct or wrong on their device
+
+Extensions:
+
+3.1 Student wants to change answer.<br>
+3.1.1 Student can change their answer until the poll/quiz is ended by instructor
