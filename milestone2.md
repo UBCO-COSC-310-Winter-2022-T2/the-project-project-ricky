@@ -120,8 +120,33 @@ Extensions:
   3.1.1 User needs to create account
 
 #### Use Case 3. Create a Class
+Primary actor: Instructor
+
+Description: Instructor adds their class so the site 
+
+Pre-condition: User is signed in as an instructor
+
+Post-condition: Instructor has added their class to the site and their students are able to find and join
+
+Main scenario:
+1. User navigates to the add class page
+2. User enters the name of their institution 
+3. They enter the name of their class and section
+4. Class is added to database and saved in their account
 
 #### Use Case 4. Enroll in/Join a Class
+Primary actor: Student
+
+Description: Student enrolls in a class 
+
+Pre-condition: User is signed in as a student and the class they're enrolling in already exists on the system
+
+Post-condition: Student is enrolled in class and can participate in class questions/polls
+
+Main scenario:
+1. Student uses search tool to find their class
+2. Student joins course
+3. Course is added to student's course list
 
 #### Use case 5. Create a Poll/Quiz
 
