@@ -93,7 +93,7 @@ Descirption: The instructor wants to create a quiz/poll to assess their students
 
 Pre-conditions: The instructor has an account and is signed in to their account.
 
-Post-conditions: The instructor ha successfully created a quiz/poll and is able to save the quiz to thier account and also luanch the quiz if desired.
+Post-conditions: The instructor has successfully created a quiz/poll and is able to save the quiz to thier account and also luanch the quiz if desired.
 
 Main Scenario:
 
@@ -113,6 +113,21 @@ Extensions:
   4.1.1 The instructor is able to cancel the new poll and resume as intended.
   
 #### Use Case 6. Modifying a quiz or poll
+
+Primary Actor: Instructor
+
+Descirption: The instructor wants to modifiy an existing quiz or poll.
+
+Pre-conditions: The instructor has an account, is signed in to their account and has already created a quiz or poll .
+
+Post-conditions: The instructor has successfully modified the desired quiz/poll and is able to save changes and launch it is desired.
+
+Main Scenario:
+
+1. The instructor selects the quiz/poll they want to modify.
+2. The instructor selects modify/edit.
+3. The instructor makes appropriate changes (this extends use case 5. step 3.)
+4. The instructor saves the quiz/poll for later use and or modifying again.
 
 
 #### Use Case 7. Start previously created and saved Quiz/Poll
