@@ -65,25 +65,63 @@ Again this is not final and temporary. Mac if you can make all these steps into 
 
 ### Non-functional Requirements
 
-- The system should allow instructors to launch polls and quizzes quickly and easily during class. 
+- The system should allow instructors to launch polls and quizzes quickly and easily during class.
 - The system should have instant-response time(less than 2s will do) for student's response.
 - The system should be accessible from different browsers and devices.
 - The system must not disclose any personal information about students and instructors apart from their name.
 - The system should be scalable and open to future improvements, such as add short answer questions, matching questions or ranking quizzes.
 
-## Use Cases 
+## Use Cases
 
-#### Use Case 1. Create Account 
+#### Use Case 1. Create Account
 
+Primary actor: Student, Instructor, Database
+
+Description: The Instructor and Student creates an account to post polls and quiz's and to partake in polls and quiz's
+
+Pre-condition: Must be on server
+
+Post-condition: Allows user to sign in and user is stored into database
+
+Main scenario:
+
+1. System asks if User is a student or instructor
+2. User makes a Username.
+3. User makes a password.
+4. Database saves Users information
+
+Extensions:
+1.1 Username is already taken.<br>
+  1.1.1 system prompts username is taken
 
 #### Use Case 2. Sign In
 
+Primary actor: Student, Instructor
+
+Description: User logs into account
+
+Pre-condition: User must have an account
+
+Post-condition: Student and Instructor has access to their specific account
+
+Main scenario:
+
+1. User enters username
+2. User enters password
+3. User has access to their account
+
+Extensions:
+
+1.1 If Username is not recognized.<br>
+  1.1.1 System displays wrong username
+2.1 If password is not recognized.<br>
+  2.1.1 System displays wrong password
+3.1 User does not have a account. <br>
+  3.1.1 User needs to create account
 
 #### Use Case 3. Create a Class
 
-
 #### Use Case 4. Enroll in/Join a Class
-
 
 #### Use case 5. Create a Poll/Quiz
 
@@ -129,9 +167,6 @@ Main Scenario:
 3. The instructor makes appropriate changes (this extends use case 5. step 3.)
 4. The instructor saves the quiz/poll for later use and or modifying again.
 
-
 #### Use Case 7. Start previously created and saved Quiz/Poll
 
-
 #### Use Case 8. Answer Quiz/poll
-
