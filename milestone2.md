@@ -50,7 +50,7 @@ Again this is not final and temporary. Mac if you can make all these steps into 
 
 ### Functional Requirements
 
-- The system will allow instructors to create and customize polls and quizzes, incorporating multiple choice or single-choice questions.
+- The system will allow instructors to create and customize polls and quizzes which consist of multiple choice questions.
 - The system will allow instructors to either share their screens or have a pre-set written or image question.
 - The system will notify instructors of student responses in real-time using the Observer design pattern.
 - The system will be able to correctly present and store a students total grade for a class.
@@ -70,4 +70,53 @@ Again this is not final and temporary. Mac if you can make all these steps into 
 - The system should be accessible from different browsers and devices.
 - The system must not disclose any personal information about students and instructors apart from their name.
 - The system should be scalable and open to future improvements, such as add short answer questions, matching questions or ranking quizzes.
+
+## Use Cases 
+
+#### Use Case 1. Create Account 
+
+
+#### Use Case 2. Sign In
+
+
+#### Use Case 3. Create a Class
+
+
+#### Use Case 4. Enroll in/Join a Class
+
+
+#### Use case 5. Create a Poll/Quiz
+
+Primary Actor: Instructor
+
+Descirption: The instructor wants to create a quiz/poll to assess their students' knowledge of a specific subject or concept. this use case combines creating a quiz or poll, where a quiz is a series of polls (questions).
+
+Pre-conditions: The instructor has an account and is signed in to their account.
+
+Post-conditions: The instructor ha successfully created a quiz/poll and is able to save the quiz to thier account and also luanch the quiz if desired.
+
+Main Scenario:
+
+1. The instructor selects the option to create a new quiz/poll.
+2. The instructor selects add poll.
+3. The instructor can upload a photo or capture an image of their screen to provide a visual aid or context for the question.
+4. repeat steps 2 and 3 for adding more questions if creating a quiz.
+5. The instructor saves the quiz/poll for later use and or modifying (Use case 6.).
+6. The instructor clicks launch and is asked to review before launching where students enrolled in the class are able to answer it.
+
+Extensions:
+
+3.1 The instructor needs to capture their screen but has not provided these privileges.<br>
+  3.1.1 The instructor allows the required privileges and is able to share and capture parts of their screen.
+  
+4.1 The instructor accidentally adds a new poll.<br>
+  4.1.1 The instructor is able to cancel the new poll and resume as intended.
+  
+#### Use Case 6. Modifying a quiz or poll
+
+
+#### Use Case 7. Start previously created and saved Quiz/Poll
+
+
+#### Use Case 8. Answer Quiz/poll
 
