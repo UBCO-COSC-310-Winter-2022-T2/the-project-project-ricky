@@ -8,9 +8,8 @@ CREATE TABLE student(
     firstName VARCHAR(256) NOT NULL,
     lastName VARCHAR(256) NOT NULL,
     email VARCHAR(256) NOT NULL,
-    PRIMARY KEY (username),
+    PRIMARY KEY (username)
 )
-
 CREATE TABLE teacher(
     username VARCHAR(256) NOT NULL,
     password VARCHAR(256) NOT NULL,
@@ -19,7 +18,6 @@ CREATE TABLE teacher(
     school VARCHAR(256) NOT NULL,
     PRIMARY KEY (username)
 )
-
 CREATE TABLE class(
     cname VARCHAR(256) NOT NULL,
     teacher VARCHAR(256) NOT NUll,
