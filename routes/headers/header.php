@@ -6,12 +6,10 @@
     <title>Header</title>
     <link rel="stylesheet" href="../../css/header.css">
 </head>
-<body class="header-body">
-    <div class="header">
-            <img src="../../img/eduPoll_logo.PNG" alt="eduPoll Logo">
-            <div>
-                <a href="login.php" class="button">Login</a>
-                <a href="create_account.php" class="button">Create Account</a>
-            </div>
-    </div>
-</body>
+<header class="header">
+    <img src="../img/eduPol_logo.PNG" alt="eduPoll Logo">
+        <div>
+            <a href="login.php" class="button">Create Account</a>
+            <a href="create_account.php" class="button">Login</a>
+        </div>
+</header>
