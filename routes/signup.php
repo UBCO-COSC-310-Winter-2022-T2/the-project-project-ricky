@@ -2,10 +2,10 @@
 <html>
     <body>
         <head>
-            <link rel="stylesheet" href="css/signup.css">
+            <link rel="stylesheet" href="../css/signup.css">
             <script src="scripts/signup-validation.js"></script>
         </head>
-        <?php include('header.php'); ?>
+        <?php //include('header.php'); ?>
         <main>
         <?php
         $errorMessage = "";
@@ -46,20 +46,29 @@
 		}
 	?>
             <form id="login_form" class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
-                <div class="form_div">
-                    <label>Username</label>
-                    <input class="field" type="text" name = "username" placeholder="Username" autofocus>
-                    <label>Email:</label>
-                    <input id="pass" class="field" type="email" name = "email"placeholder="Email">
-                    <label>Password:</label>
-                    <input id="pass" class="field" type="password" name = "password" placeholder="Password">                    
-                    <label>Confirm Password:</label>
-                    <input id="pass" class="field" type="password" placeholder="Confirm Password">
-                    <label>Profile Image (optional):</label>
-                    <input type="file" name="profileImage">
-                    <?php echo "<p>$errorMessage</p>"; ?> 
-                    <button class="submit" type="submit" form="login_form">Sign-up</button>
-                </div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br><br>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br><br>
+                
+                <label for="retype-password">Confirm Password:</label>
+                <input type="password" id="retype-password" name="password" required><br><br>
+
+                <label for="school">School:</label>
+                <input type="text" id="school" name="school" required><br><br>
+
+                <label for="user-type">I am a:</label>
+                <select id="user-type" name="user-type">
+                    <option value="teacher">Teacher</option>
+                    <option value="student">Student</option>
+                </select><br><br>
+                <?php echo "<p>$errorMessage</p>"; ?> 
+
+                <input type="submit" value="Sign up">
             </form>
         </main>
     </body>

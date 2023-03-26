@@ -12,15 +12,15 @@ window.onload = function(){
     
         console.dir(profileImage)
     
-        if(profileImage !== "" && !isValidImageFile(profileImage)){
-          alert("Must upload a vaild image file.");
-          return;
-        }
+        // if(profileImage !== "" && !isValidImageFile(profileImage)){
+        //   alert("Must upload a vaild image file.");
+        //   return;
+        // }
         
-        if (username === "") {
-          alert("Please enter a username.");
-          return;
-        }
+        // if (username === "") {
+        //   alert("Please enter a username.");
+        //   return;
+        // }
     
         if (!isValidEmail(email)) {
           alert("Please enter a valid email address.");
