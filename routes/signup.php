@@ -2,7 +2,8 @@
 <html>
     <body>
         <head>
-            <link rel="stylesheet" href="../css/signup.css">
+            <link rel="stylesheet" href="../css/all.css">
+            <link rel="stylesheet" href="../css/form.css">
             <script src="scripts/signup-validation.js"></script>
         </head>
         <?php //include('header.php'); ?>
@@ -45,30 +46,32 @@
 			$conn->close();
 		}
 	?>
-            <form id="login_form" class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required><br><br>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
-                
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required><br><br>
-                
-                <label for="retype-password">Confirm Password:</label>
-                <input type="password" id="retype-password" name="password" required><br><br>
+            <form id="signup_form" class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
+                <div class="form_div">
+                    <label for="username">Username:</label>
+                    <input class="field" type="text" id="username" name="username" required><br><br>
+                    
+                    <label for="email">Email:</label>
+                    <input class="field" type="email" id="email" name="email" required><br><br>
+                    
+                    <label for="password">Password:</label>
+                    <input class="field" type="password" id="password" name="password" required><br><br>
+                    
+                    <label for="retype-password">Confirm Password:</label>
+                    <input class="field" type="password" id="retype-password" name="password" required><br><br>
 
-                <label for="school">School:</label>
-                <input type="text" id="school" name="school" required><br><br>
+                    <label for="school">School:</label>
+                    <input class="field" type="text" id="school" name="school" required><br><br>
 
-                <label for="user-type">I am a:</label>
-                <select id="user-type" name="user-type">
-                    <option value="teacher">Teacher</option>
-                    <option value="student">Student</option>
-                </select><br><br>
-                <?php echo "<p>$errorMessage</p>"; ?> 
+                    <label for="user-type">I am a:</label>
+                    <select id="user-type" name="user-type">
+                        <option value="teacher">Teacher</option>
+                        <option value="student">Student</option>
+                    </select><br><br>
+                    <?php echo "<p>$errorMessage</p>"; ?> 
 
-                <input type="submit" value="Sign up">
+                    <input class="submit" type="submit" value="Sign up">
+                </div>
             </form>
         </main>
     </body>
