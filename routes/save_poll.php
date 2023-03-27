@@ -31,7 +31,7 @@ $stmt->bind_param("sssssss", $quiz, $question, $file, $options['A'], $options['B
 
 if ($stmt->execute()) {
     echo "New poll created successfully";
-    header('location: createQuiz.php')
+    header('location: createQuiz.php');
     exit;
 } else {
     echo "Error: " . $stmt->error;
