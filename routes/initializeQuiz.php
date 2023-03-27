@@ -3,7 +3,9 @@
 //will be sent to this file form the teachers class page when they click the create quiz button that will ask them to name the quiz
 session_start();
 
-$quiz = $_POST['qname']
+$quiz = $_POST['qname']//get this from form when creat quiz clicked
+
+//store these in session when teacher chooses the class
 $class =$_SESSION['cname'];
 $school = $_SESSION['school'];
 
