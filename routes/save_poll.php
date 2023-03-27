@@ -26,7 +26,7 @@ for ($i = 'A'; $i <= 'D'; $i++) {
 
 $answer = $_POST['correctAnswer'];
 
-$stmt = $conn->prepare("INSERT INTO $table_name (qname, content, qImage, optionA, optionB, optionC, optionD, answer) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO question (qname, content, qImage, optionA, optionB, optionC, optionD, answer) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("sssssss", $quiz, $question, $file, $options['A'], $options['B'], $options['C'], $options['D'], $answer);
 
 if ($stmt->execute()) {
