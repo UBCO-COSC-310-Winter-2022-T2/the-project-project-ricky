@@ -1,24 +1,20 @@
 <?php
-// Database configuration
-$db_host = "localhost";
-$db_username = "your_username";
-$db_password = "your_password";
-$db_name = "your_database_name";
 
-// Create connection
-$conn = new mysqli($db_host, $db_username, $db_password, $db_name);
+start_session();
+include('dbConnection');
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
+//$cname = $_SESSION['cname'];
+//$school = $_SESSION['school'];
+$cname = "Test Class";
+$school = "UBC";
 // Fetch students
-$students_query = "SELECT student.name, sclass.grade FROM student INNER JOIN sclass ON student.username = sclass.username";
+$students_query = "SELECT student.firstName, student.lastName, sclass.grade FROM student INNER JOIN sclass ON student.username = sclass.username WHERE cname = ? and school = ?";
+$stmt->bind_param("ss", $cname, $school); 
 $students_result = $conn->query($students_query);
 
 // Fetch quizzes
-$quizzes_query = "SELECT * FROM quiz WHERE class_id = your_class_id"; // Replace your_class_id with the actual class id
+$quizzes_query = "SELECT * FROM quiz WHERE cname = ? and school = ?"; 
+$stmt->bind_param("ss", $cname, $school); 
 $quizzes_result = $conn->query($quizzes_query);
 
 $conn->close();
@@ -29,9 +25,6 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Class View</title>
-    <style>
-        /* Add your preferred styling here */
-    </style>
     <script>
         function showForm() {
             const form = document.getElementById("newQuizForm");
@@ -45,7 +38,8 @@ $conn->close();
     </script>
 </head>
 <body>
-    <h1>Students</h1>
+    <h1><?= $school: $cname?></h1>
+    <h2>Students</h2>
     <table>
         <tr>
             <th>Name</th>
@@ -53,17 +47,17 @@ $conn->close();
         </tr>
         <?php while ($row = $students_result->fetch_assoc()): ?>
         <tr>
-            <td><?= $row['name'] ?></td>
+            <td><?= $row['firstName'] $row['lastName']?></td>
             <td><?= $row['grade'] ?></td>
         </tr>
         <?php endwhile; ?>
     </table>
 
-    <h1>Quizzes</h1>
+    <h2>Quizzes</h2>
     <ul>
         <?php while ($row = $quizzes_result->fetch_assoc()): ?>
         <li>
-            <?= $row['name'] ?>
+            <?= $row['qname'] ?>
             <button>Edit Quiz</button>
         </li>
         <?php endwhile; ?>
@@ -73,7 +67,7 @@ $conn->close();
     <form id="newQuizForm" style="display:none;" action="initializeQuiz.php" method="post">
         <h2>New Quiz</h2>
         <label for="quizName">Quiz Name:</label>
-        <input type="text" name="quizName" id="quizName" required>
+        <input type="text" name="qname" id="quizName" required>
         <br>
         <input type="submit" value="Submit">
         <button type="button" onclick="hideForm()">Cancel</button>
