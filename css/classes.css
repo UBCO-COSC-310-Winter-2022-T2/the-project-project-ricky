@@ -1,0 +1,48 @@
+
+.main-container {
+    width: 80%;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  .classes-nav {
+    margin-bottom: 20px;
+    background-image: linear-gradient(to right, #73d0b9, #99ddcc, #bfeadf);
+    background-position:center;
+    background-size:cover;
+    display:flex;
+
+  }
+  .classes-nav h1 {
+    margin: 0;
+  }
+  .search-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+  }
+  input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .suggestions {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+  }
+  .suggestion {
+    cursor: pointer;
+    padding: 5px;
+  }
+  .suggestion:hover {
+    background-color: lightblue;
+    color: white;
+  }

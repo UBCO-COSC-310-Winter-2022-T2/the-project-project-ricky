@@ -2,7 +2,7 @@
     $servername = "localhost";
     $username_db = "cosc310user";
     $password_db = "1234";
-    $dbname = "edupoll";
+    $dbname = "edupol";
     $conn = new mysqli($servername, $username_db, $password_db, $dbname);
     // Check connection
     if ($conn->connect_error) {
