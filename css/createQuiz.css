@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #99DDCC;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+button {
+    font-size: 1.2rem;
+    background-color: #000;
+    color: #FFF;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+form {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+}
+
+label, input[type="text"], textarea, input[type="file"] {
+    display: block;
+    width: 100%;
+}
+
+input[type="text"], textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px; 
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+    margin-left: 5px;
+} 
+
+input[type="submit"] {
+    font-size: 1.2rem;
+    background-color: #000;
+    color: #FFF;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #333;
+}
+.radio-container {
+    display: inline-block;
+}
+
+.radio-container label {
+    margin-right: 10px;
+}
