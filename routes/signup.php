@@ -4,9 +4,9 @@
         <head>
             <link rel="stylesheet" href="../css/all.css">
             <link rel="stylesheet" href="../css/form.css">
-            <script src="scripts/signup-validation.js"></script>
+            <script src="../scripts/signup-validation.js"></script>
         </head>
-        <?php //include('header.php'); ?>
+        <?php include('headers/header.php'); ?>
         <main>
         <?php
         $errorMessage = "";
@@ -35,13 +35,14 @@
 			}		
             else{
                 // Prepared stmnts
-                if($userType == 'Teacher'){
+                $stmt = "";
+                if($userType == 'teacher'){
                     $stmt = $conn->prepare("INSERT INTO teacher (username, password, email, school) VALUES (?, ?, ?, ?)"); //Question marks for bind_param params
                     $encrypedPW = md5($password);
                     $stmt->bind_param("ssss", $username,$encrypedPW, $email, $school);
                 }
-                else if($userType == 'Student'){
-                    $stmt = $conn->prepare("INSERT INTO student (username, password, email,) VALUES (?, ?, ?)"); //Question marks for bind_param params
+                else if($userType == 'student'){
+                    $stmt = $conn->prepare("INSERT INTO student (username, password, email) VALUES (?, ?, ?)"); //Question marks for bind_param params
                     $encrypedPW = md5($password);
                     $stmt->bind_param("sss", $username,$encrypedPW, $email);
                 }
@@ -49,7 +50,7 @@
                 // Execute SQL statement and check for errors
                 if ($stmt->execute()) {
                         //route to login page
-                        header("Location: login.php");
+                        header("Location: select.php");
                 } else {
                     echo "Error: " . $stmt->error;
                 }
