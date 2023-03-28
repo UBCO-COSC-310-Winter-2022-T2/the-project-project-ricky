@@ -3,10 +3,13 @@
 //will be sent to this file form the teachers class page when they click the create quiz button that will ask them to name the quiz
 session_start();
 
-$quiz = $_POST['qname']//get this from form when creat quiz clicked
+$quiz = $_POST['qname'];//get this from form when creat quiz clicked
 
+
+
+$_SESSION['qname'] = $quiz;
 //store these in session when teacher chooses the class
-$class =$_SESSION['cname'];
+$class = $_SESSION['cname'];
 $school = $_SESSION['school'];
 
 include('dbConnection.php');
@@ -16,7 +19,7 @@ $stmt->bind_param("sss", $quiz, $class, $school);
 
 if ($stmt->execute()) {
     echo "New poll created successfully";
-    header('location: createQuiz.php')
+    header('location: createQuiz.php');
     exit;
 } else {
     echo "Error: " . $stmt->error;

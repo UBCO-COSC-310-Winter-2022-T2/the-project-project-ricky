@@ -1,0 +1,51 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.hero {
+    background-image: url('../img/chalkBoard.jpg');
+    background-color: #333;
+    background-size: cover;
+    background-position: center ;
+    background-repeat: no-repeat;
+    width:80%;
+    height: 50vh;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    padding: 3em 1em 1em 1em;
+    text-align: center;
+
+}
+.hero .container{
+    max-width: 65%;
+}
+
+.hero h1 {
+    font-size: 40;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.whitespace{
+    height: 1vh;
+
+}
+.instructor-bait{
+    background-image: linear-gradient(to right, #73d0b9, #99ddcc, #bfeadf);
+    padding: 20px;
+    width: 80%;
+    background-position:center;
+    background-size:cover;
+    display:flex;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
