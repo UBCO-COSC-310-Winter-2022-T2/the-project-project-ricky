@@ -1,4 +1,8 @@
+CREATE DATABASE IF NOT EXISTS edupoll;
 
+USE edupoll;
+
+USE DATABASE edupoll;
 
 CREATE TABLE student(
     username VARCHAR(256) NOT NULL,
@@ -18,27 +22,29 @@ CREATE TABLE teacher(
 );
 CREATE TABLE class(
     cname VARCHAR(256) NOT NULL,
-    teacher VARCHAR(256) NOT NUll,
+    teacher VARCHAR(256) NOT NULL,
     school VARCHAR(256) NOT NULL,
-    PRIMARY KEY (cname, school),
-    FOREIGN KEY (teacher) REFERENCES teacher(username)
-);
+    PRIMARY KEY(cname),
+    PRIMARY KEY(school),
+    FOREIGN KEY(teacher) REFERENCES teacher(username)
+)
 CREATE TABLE sclass(
     username VARCHAR(256) NOT NULL,
     cname VARCHAR(256) NOT NULL,
     school VARCHAR(256) NOT NULL,
     grade INT NOT NULL DEFAULT 0,
-    FOREIGN KEY (username) REFERENCES student(username) ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY (cname, school) REFERENCES class(cname, school) ON UPDATE CASCADE ON DELETE CASCADE
-
-);
+    FOREIGN KEY(username) REFERENCES student(username) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY(cname) REFERENCES class(cname) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY(school) REFERENCES class(school) ON UPDATE CASCADE ON DELETE CASCADE
+)
 CREATE TABLE quiz(
     qname VARCHAR(256) NOT NULL,
     cname VARCHAR(256) NOT NULL,
     school VARCHAR(256) NOT NULL,
     PRIMARY KEY(qname),
-    FOREIGN KEY (cname, school) REFERENCES class(cname, school) ON UPDATE CASCADE ON DELETE CASCADE
-);
+    FOREIGN KEY(cname) REFERENCES class(cname) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY(school) REFERENCES class(school) ON UPDATE CASCADE ON DELETE CASCADE
+)
 CREATE TABLE question(
     qid INT NOT NULL AUTO_INCREMENT,
     content VARCHAR(256) NOT NULL,

@@ -4,14 +4,14 @@ main {
     justify-content: center;
     height: 75vh;
     width: 100%;
-    margin-top: 10em;
+    margin-top: 5em;
 }
 
 .form {
     width: 320px;
     padding: 40px;
     border-radius: 8px;
-    background-color: #4b7fd8;
+    background-color: #000000;
     font-family: 'Montserrat', sans-serif;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
@@ -24,7 +24,7 @@ main {
 
 .info_div {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .field {
@@ -36,7 +36,7 @@ main {
     margin-top: 10px;
     margin-bottom: 20px;
     font-family: 'Montserrat', sans-serif;
-    color: #4b7fd8;
+    color: #000000;
     background-color: #F2F9FD;
 }
 
@@ -49,14 +49,14 @@ select {
     margin-top: 10px;
     margin-bottom: 20px;
     font-family: 'Montserrat', sans-serif;
-    color: #4b7fd8;
+    color: #4bd8ab;
     background-color: #F2F9FD;
 }
 .submit {
     border-style: none;
     border-radius: 5px;
     background-color: white;
-    color: #4b7fd8;
+    color: #4bd8ab;
     font-size: 0.99em;
     font-weight: 700;
     padding: 8px 20px;
@@ -68,3 +68,4 @@ select {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
+
