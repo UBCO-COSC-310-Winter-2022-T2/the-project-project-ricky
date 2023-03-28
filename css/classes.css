@@ -3,30 +3,53 @@
     width: 80%;
     margin: 0 auto;
     box-sizing: border-box;
+    border: 1px solid #ccc;
   }
   .classes-nav {
-    margin-bottom: 20px;
-    background-image: linear-gradient(to right, #73d0b9, #99ddcc, #bfeadf);
+    /* background-image: linear-gradient(to right, #73d0b9, #99ddcc, #bfeadf); */
+    background-color: #73d0b9;
     background-position:center;
     background-size:cover;
     display:flex;
-
+    color:black;
+    align-items: center;
+    justify-content: center;
+    height:3em;
   }
   .classes-nav h1 {
     margin: 0;
   }
   .search-container {
-    display: inline-block;
+    background-color: #99ddcc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     width: 100%;
-  }
-  input[type="text"] {
-    width: 100%;
+    height: 4em;
+    border: 1px solid #ccc;
     box-sizing: border-box;
   }
+  
+  input[type="text"] {
+    width: 98%;
+    box-sizing: border-box;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    transition: all 0.3s;
+    height: 2em;
+  }
+  input[type="text"]:focus{
+    background-color: white;
+    border-color: blue;
+  }
   .suggestions {
+
     background-color: white;
     border: 1px solid #ccc;
+    border-radius: 4px;
     border-top: none;
     display: none;
     max-height: 200px;

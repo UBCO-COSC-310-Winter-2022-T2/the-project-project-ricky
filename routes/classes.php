@@ -10,14 +10,29 @@
 <body>
     <div class="main-container">
         <div class="classes-nav">
-            <h1>Menu</h1>
-            <h1>Courses</1>
+            <h1>Add a Class</1>
         </div>
-        <form action='classes.php' method='POST'>
-            <div class="search-container">
-                <input type="text" id="search" name="search" onkeyup="showSuggestions(this.value)">
-                <div id="suggestions" class="suggestions"></div>
-            </div>
+            <?php
+            if($_SERVER["REQUEST_METHOD"]=='POST' and isset($_POST['school'])){
+                echo"<form action='studentClasses.php' method='POST'>";
+                echo"<div class='search-container'>";
+                echo"<input type='text' id='search' name='cname' placeholder='Search for your class' onkeyup='showwSuggestions(this.value)'>";
+                echo "</div>";
+                echo "<div id='suggestions' class='suggestions'></div>";
+                echo "</form>";
+            }else{
+                echo "<form action='classes.php' method='POST'>";
+                echo "<div class='search-container'>";
+                echo "<input type='text' id='search' name='school' placeholder='Search for your school' onkeyup='showSuggestions(this.value)'>";
+                echo "</div>";
+                echo "<div id='suggestions' class='suggestions'></div>";
+                echo "</form>";
+            }
+            // <div class="search-container">
+            //     <input type="text" id="search" name="school" placeholder="Search for your school" onkeyup="showSuggestions(this.value)">
+            // </div>
+            // <div id="suggestions" class="suggestions"></div>
+            ?>
     </div>
 </form>
 </body>
