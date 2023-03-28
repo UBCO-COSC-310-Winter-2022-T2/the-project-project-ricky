@@ -5,8 +5,11 @@ session_start();
 
 $quiz = $_POST['qname'];//get this from form when creat quiz clicked
 
+
+
+$_SESSION['qname'] = $quiz;
 //store these in session when teacher chooses the class
-$class =$_SESSION['cname'];
+$class = $_SESSION['cname'];
 $school = $_SESSION['school'];
 
 include('dbConnection.php');
