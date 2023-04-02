@@ -8,8 +8,8 @@ $quiz = $_SESSION['qname'];
 
 
 if(isset($_POST['image'])){
-    $file = pathinfo($_FILES['image']['name'], PATHINFO_BASENAME);
-    move_uploaded_file($_FILES['image']['tmp_name'], "../qImages/" . $quiz . $file);
+    $file =  $quiz . pathinfo($_FILES['image']['name'], PATHINFO_BASENAME);
+    move_uploaded_file($_FILES['image']['tmp_name'], "../qImages/" . $file);
 } else{
     $file = NULL;
 }

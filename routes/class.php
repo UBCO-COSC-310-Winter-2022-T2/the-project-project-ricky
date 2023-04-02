@@ -98,7 +98,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             while ($row = $result->fetch_assoc()): ?>
         <li>
             <?= $row['qname'] ?>
-            <button>Edit Quiz</button>
+            <form action="editquiz.php" method="post"></form>
+            <input type="hidden" name="qname" value="<?=$row['qname']?>">
+            <submit type="submit" value="submit">Edit Quiz</button>
         </li>
         <?php endwhile; 
             endif;
