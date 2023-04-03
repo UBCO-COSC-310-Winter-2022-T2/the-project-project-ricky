@@ -6,10 +6,37 @@ include('dbConnection.php');
 
 $quiz = $_SESSION['qname'];
 
+if(isset($_FILES['image'])){
+    $target_dir = "../qImages/";
+    $file = $target_dir . $quiz . basename($_FILES["image"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($file, PATHINFO_EXTENSION));
 
-if(isset($_POST['image'])){
-    $file =  $quiz . pathinfo($_FILES['image']['name'], PATHINFO_BASENAME);
-    move_uploaded_file($_FILES['image']['tmp_name'], "../qImages/" . $file);
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
+    }
+
+    if ($_FILES["image"]["size"] > 100000) { 
+        echo "Sorry, your file is too large.";
+        $uploadOk = 0;
+    }
+
+    if (file_exists($file)) {
+        echo "Sorry, file already exists.";
+        $uploadOk = 0;
+      }
+
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+    } else {
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $file)) {
+            echo "The file ". htmlspecialchars(basename($_FILES["image"]["name"])). " has been uploaded.";
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    }
+    unset($_FILES['image']);
 } else{
     $file = NULL;
 }

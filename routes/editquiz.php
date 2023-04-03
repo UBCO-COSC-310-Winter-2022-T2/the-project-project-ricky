@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php
-include('headers/header.php');
 echo "<body>";
 session_start();
 
@@ -10,15 +9,37 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['qname'])){
     include('dbConnection.php');
 
     if(isset($_POST['optionA'], $_POST['correctAnswer'])){
-        if (isset($_POST['image'])) {
-            $file = $qname . pathinfo($_FILES['image']['name'], PATHINFO_BASENAME);
-            $path = "../qImages/" . $file;
-            if (file_exists($path)) {
-                unlink($path);
+        if(isset($_FILES['image'])){
+            $target_dir = "../qImages/";
+            $file = $target_dir . $quiz . basename($_FILES["image"]["name"]);
+            $uploadOk = 1;
+            $imageFileType = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+        
+            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+                echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                $uploadOk = 0;
             }
-            move_uploaded_file($_FILES['image']['tmp_name'], $path);
-        } else{
-            $file = NULL;
+        
+            if ($_FILES["image"]["size"] > 100000) { 
+                echo "Sorry, your file is too large.";
+                $uploadOk = 0;
+            }
+        
+            if (file_exists($file)) {
+                echo "Sorry, file already exists.";
+                $uploadOk = 0;
+              }
+        
+            if ($uploadOk == 0) {
+                echo "Sorry, your file was not uploaded.";
+            } else {
+                if (move_uploaded_file($_FILES["image"]["tmp_name"], $file)) {
+                    echo "The file ". htmlspecialchars(basename($_FILES["image"]["name"])). " has been uploaded.";
+                } else {
+                    echo "Sorry, there was an error uploading your file.";
+                }
+            }
+            unset($_FILES['image']);
         }
         if(isset($_POST['question'])){
             $question = $_POST['question'];
@@ -33,8 +54,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['qname'])){
         
         $answer = $_POST['correctAnswer'];
 
-        $stmt = $conn->prepare('UPDATE questiions SET content = ?, qImage = ?, optionA = ?, optionB = ?, optionC = ?, optionD = ?, answer = ? WHERE qname = ?');
-        $stmt->bind_param('ssssssss', $question, $file, $options['A'], $options['B'], $options['C'], $options['D'], $correctAnswer, $qname);
+        if(isset($_FILES['image'])){
+            $stmt = $conn->prepare('UPDATE question SET content = ?, qImage = ?, optionA = ?, optionB = ?, optionC = ?, optionD = ?, answer = ? WHERE qname = ?');
+            $stmt->bind_param('ssssssss', $question, $path, $options['A'], $options['B'], $options['C'], $options['D'], $answer, $qname);
+        } else {
+            $stmt = $conn->prepare('UPDATE question SET content = ?, optionA = ?, optionB = ?, optionC = ?, optionD = ?, answer = ? WHERE qname = ?');
+            $stmt->bind_param('ssssssss', $question, $options['A'], $options['B'], $options['C'], $options['D'], $answer, $qname);
+        }
 
         if ($stmt->execute()){
             echo "Question updated.";
@@ -53,11 +79,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['qname'])){
         while ($row = $result->fetch_assoc()){
             echo "<form id='newPollForm' action='editquiz.php' method='post' enctype='multipart/form-data'>";
             echo "<fieldset>";
-            echo "<h2>". $qname . "</h2>";
+            echo "<input type='hidden' name='qname' value='$qname' >";
+            echo "<h2>$qname</h2>";
             echo "<label for='question'>Question:</label>";
-            echo "<textarea name='question' id='question' value='$qname'></textarea>";
-            echo "<label for='image'>Image (optional):</label>";
-            echo "<input type='file' name='image' id='image' accept='image/*' value=" .$row['qImage']. ">";
+            echo "<textarea name='question' id='question' >". $row['content'] ."</textarea>";
+            echo "<label for='image'>New Image (optional):</label>";
+            echo "<input type='file' name='image' id='image' accept='image/*' >";
             echo "<h3>Options:</h3>";
             for ($i = 'A'; $i <= 'D'; $i++){
             echo "<label for='option$i'>Option $i :</label>";
