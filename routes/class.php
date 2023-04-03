@@ -109,6 +109,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="submit" value="Edit Quiz">
                 </form>
             </td>    
+            <td>
+                <form action="deletequiz.php" method="post">
+                <input type="hidden" name="qname" value="<?=$row['qname']?>">
+                <input type="submit" value="Delete Quiz">
+                </form>
+            </td>    
         </tr>
         <?php endwhile; 
             endif;
