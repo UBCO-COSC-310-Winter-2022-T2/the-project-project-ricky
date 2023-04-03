@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <?php
+include('headers/header.php');
 echo "<body>";
 session_start();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['qname'])){
     $qname = $_POST['qname'];
 
+    $_SESSION['qname'] = $qname;
     include('dbConnection.php');
 
     if(isset($_POST['optionA'], $_POST['correctAnswer'])){
@@ -23,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['qname'])){
         $answer = $_POST['correctAnswer'];
 
         $stmt = $conn->prepare('UPDATE question SET content = ?, optionA = ?, optionB = ?, optionC = ?, optionD = ?, answer = ? WHERE qname = ?');
-        $stmt->bind_param('ssssssss', $question, $options['A'], $options['B'], $options['C'], $options['D'], $answer, $qname);
+        $stmt->bind_param('sssssss', $question, $options['A'], $options['B'], $options['C'], $options['D'], $answer, $qname);
     
         if ($stmt->execute()){
             echo "Question updated.";
@@ -72,6 +74,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['qname'])){
 
 
 }
-echo "</body>";
 $conn->close();
 ?>
+<form action="createQuiz.php">
+    <input type="submit" value="Add Poll">
+</form>
+    
+</body>

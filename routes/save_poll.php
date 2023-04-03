@@ -19,8 +19,8 @@ for ($i = 'A'; $i <= 'D'; $i++) {
 
 $answer = $_POST['correctAnswer'];
 
-$stmt = $conn->prepare("INSERT INTO question (qname, content, optionA, optionB, optionC, optionD, answer) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssssss", $quiz, $question, $options['A'], $options['B'], $options['C'], $options['D'], $answer);
+$stmt = $conn->prepare("INSERT INTO question (qname, content, optionA, optionB, optionC, optionD, answer) VALUES (?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssss", $quiz, $question, $options['A'], $options['B'], $options['C'], $options['D'], $answer);
 
 if ($stmt->execute()) {
     echo "New poll created successfully";
