@@ -31,10 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }else{		
 
             $stmt = $conn->prepare("INSERT INTO quiz (qname, cname, school) VALUES (?, ?, ?)");
-            $stmt->bind_param("sss", $quiz, $class, $school);
+            $stmt->bind_param("sss", $quiz, $cname, $school);
 
             if ($stmt->execute()) {
-                echo "New poll created successfully";
+                echo "New Quiz created successfully";
                 header('location: createQuiz.php');
                 exit;
             } else {
@@ -44,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Error: " . $stmt->error;
     }
+    $conn->close();
 }
 
 ?>
@@ -89,23 +90,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </table>
 
     <h2>Quizzes</h2>
-    <ul>
+    <table>
+        <tr>
+            <th>Quiz Name</th>
+            <th></th>
+        </tr>
         <?php 
         $quizstmt = $conn->prepare("SELECT * FROM quiz WHERE cname = ? and school = ?"); 
         $quizstmt->bind_param("ss", $cname, $school); 
         if($quizstmt->execute()):
             $result = $quizstmt->get_result();
             while ($row = $result->fetch_assoc()): ?>
-        <li>
-            <?= $row['qname'] ?>
-            <button>Edit Quiz</button>
-        </li>
+        <tr>
+            <td><?= $row['qname'] ?></td>
+            <td>
+                <form action="editquiz.php" method="post">
+                <input type="hidden" name="qname" value="<?=$row['qname']?>">
+                <input type="submit" value="Edit Quiz">
+                </form>
+            </td>    
+        </tr>
         <?php endwhile; 
             endif;
     
         $conn->close();
         ?>
-    </ul>
+    </table>
     <button onclick="showForm()">New Quiz</button>
     <?php echo "<p style='color: red;'>$errorMessage</p>"; ?>
 
