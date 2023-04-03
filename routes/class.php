@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bind_param("sss", $quiz, $cname, $school);
 
             if ($stmt->execute()) {
-                echo "New poll created successfully";
+                echo "New Quiz created successfully";
                 header('location: createQuiz.php');
                 exit;
             } else {
