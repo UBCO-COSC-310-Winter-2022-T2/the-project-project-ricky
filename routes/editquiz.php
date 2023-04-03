@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <?php
+session_start();
 include('headers/header.php');
 echo "<body>";
-session_start();
 
-if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['qname'])){
-    $qname = $_POST['qname'];
+if (isset($_POST['qname']) || isset($_SESSION['qname'])){
+    $qname = isset($_POST['qname']) ? $_POST['qname'] : $_SESSION['qname'];
 
     $_SESSION['qname'] = $qname;
     include('dbConnection.php');
@@ -43,7 +43,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['qname'])){
         $result = $stmt->get_result();
         while ($row = $result->fetch_assoc()){
             echo "<form id='newPollForm' action='editquiz.php' method='post' >";
-            echo "<fieldset>";
             echo "<input type='hidden' name='qname' value='$qname' >";
             echo "<h2>$qname</h2>";
             echo "<label for='question'>Question:</label>";
@@ -66,8 +65,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['qname'])){
             }
             echo "<br>";
             echo "<input type='submit' value='Update'>";
-            echo "</fieldset>";
             echo "</form>";
+            echo "<form action='deletepoll.php' method='POST'>";
+            echo "<input type='hidden' name='qid' value=" . $row['qid'] . ">";
+            echo "<input style='float: right' type='submit' value='Delete Poll' >";
+            echo "</form><br><br>";
         }
     }
     $stmt->close();
