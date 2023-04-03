@@ -47,7 +47,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['qname'])){
             echo "<input type='hidden' name='qname' value='$qname' >";
             echo "<h2>$qname</h2>";
             echo "<label for='question'>Question:</label>";
-            echo "<textarea name='question' id='question' >". $row['content'] ."</textarea>";
+            echo "<textarea name='question' id='question' required>". $row['content'] ."</textarea>";
             echo "<h3>Options:</h3>";
             for ($i = 'A'; $i <= 'D'; $i++){
             echo "<label for='option$i'>Option $i :</label>";
