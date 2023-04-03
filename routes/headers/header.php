@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../css/createQuiz.css">
 
 </head>
-<?php session_start(); //since header is included on all pages this the only place i need to start session?> 
 <header class="header">
     <img src="../img/eduPol_logo.PNG" alt="eduPoll Logo">
         <div>

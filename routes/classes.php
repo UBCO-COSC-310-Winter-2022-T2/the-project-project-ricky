@@ -15,6 +15,6 @@
         <label for="search">Search schools:</label>
         <input type="text" id="search" name="search" onkeyup="showSuggestions(this.value)">
         <div id="suggestions" class="suggestions"></div>
-</form>
+    </form>
 </body>
 </html>
