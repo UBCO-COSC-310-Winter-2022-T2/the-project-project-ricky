@@ -3,12 +3,15 @@
 session_start();
 include('dbConnection.php');
 
-//$cname = $_SESSION['cname'];
-//$school = $_SESSION['school'];
+// if(!isset($_GET['cname'], $_GET['school'])){
+//     die("null class");
+// }
+$cname = $_GET['cname'];
+$school = $_GET['school'];
 
 //for testing
-$cname = "Test Class";
-$school = "UBC";
+// $cname = "Test Class";
+// $school = "UBC";
 $_SESSION['cname'] = $cname;
 $_SESSION['school'] = $school;
 
