@@ -1,0 +1,71 @@
+.main-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2em 0;
+}
+.classes-nav {
+    /* background-image: linear-gradient(to right, #73d0b9, #99ddcc, #bfeadf); */
+    background-color: #73d0b9;
+    background-position:center;
+    background-size:cover;
+    display:flex;
+    color:black;
+    align-items: center;
+    justify-content: center;
+    height:3em;
+    border: black solid 1px;
+  }
+
+h1 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.classes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.class-card {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 1em;
+    padding: 1em;
+    width: calc(33% - 2em);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.class-card h2 {
+    margin: 0 0 0.5em;
+}
+
+.class-card h3 {
+    margin: 0 0 0.5em;
+    font-size: 1.1em;
+}
+
+.class-card p {
+    margin: 0;
+}
+
+.class-card button {
+    background-color: #73d0b9;
+    color: white;
+    font-size: 16px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 auto;
+}
+
+.class-card button:hover {
+    background-color: #55b8a1;
+}
