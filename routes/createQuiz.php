@@ -42,10 +42,7 @@
     <form id="newPollForm" class="hidden" action="save_poll.php" method="post" enctype="multipart/form-data" onsubmit="validateForm(event)">
         <h2>New Poll</h2>
         <label for="question">Question:</label>
-        <textarea name="question" id="question" rows="4" cols="50"></textarea>
-
-        <label for="image">Image (optional):</label>
-        <input type="file" name="image" id="image" accept="image/*">
+        <textarea name="question" id="question" rows="4" cols="50" required></textarea>
         
         <h3>Options:</h3>
         <?php for ($i = 'A'; $i <= 'D'; $i++): ?>
