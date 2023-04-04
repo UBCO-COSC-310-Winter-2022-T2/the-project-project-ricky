@@ -16,9 +16,10 @@
             if($_SERVER["REQUEST_METHOD"]=='POST' and isset($_POST['school'])){
                 echo"<form action='studentClasses.php' method='POST'>";
                 echo"<div class='search-container'>";
-                echo"<input type='text' id='search' name='cname' placeholder='Search for your class' onkeyup='showwSuggestions(this.value)'>";
+                echo"<input type='text' id='search' name='cname' placeholder='Search for your class' onkeyup='showSuggestions2(this.value)'>";
+                echo "<input type='hidden' id='hidden-school' name='school' value='". htmlspecialchars($_POST['school']) ."'>";
                 echo "</div>";
-                echo "<div id='suggestions' class='suggestions'></div>";
+                echo "<div id='suggestions2' class='suggestions'></div>";
                 echo "</form>";
             }else{
                 echo "<form action='classes.php' method='POST'>";
