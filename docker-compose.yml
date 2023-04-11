@@ -1,0 +1,41 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - '80:80'
+    volumes:
+      - ./apache.conf:/etc/apache2/sites-available/000-default.conf
+      - .:/var/www/html
+      - vendor:/var/www/html/vendor
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: edupol
+      MYSQL_USER: cosc310user
+      MYSQL_PASSWORD: 1234
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./ddl/db.sql:/docker-entrypoint-initdb.d/db.sql
+    command: --default-authentication-plugin=mysql_native_password
+
+  websocket:
+    build:
+      context: .
+      dockerfile: Dockerfile.websocket
+    command: php websocket_server.php
+    ports:
+      - '8080:8080'
+    volumes:
+      - .:/var/www/html
+      - vendor:/var/www/html/vendor
+
+volumes:
+  db_data: {}
+  vendor: {}
