@@ -1,6 +1,6 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <?php
-session_start();
 include('headers/header.php');
 echo "<body>";
 

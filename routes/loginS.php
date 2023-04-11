@@ -40,7 +40,7 @@ $pwerror='';
                     $_SESSION['student'] = True;
                     
                     // change link to homepage when ready
-                    header("Location: index.php");
+                    header("Location: studentportal.php");
                     exit;
                 } else {
                     $pwerror = "Incorrect username or password";

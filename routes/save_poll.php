@@ -23,7 +23,7 @@ $stmt = $conn->prepare("INSERT INTO question (qname, content, optionA, optionB, 
 $stmt->bind_param("sssssss", $quiz, $question, $options['A'], $options['B'], $options['C'], $options['D'], $answer);
 
 if ($stmt->execute()) {
-    echo "New poll created successfully";
+    // echo "New poll created successfully";
     header('location: createQuiz.php');
     exit;
 } else {

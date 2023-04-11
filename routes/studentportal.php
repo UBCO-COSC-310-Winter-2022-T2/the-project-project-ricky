@@ -10,7 +10,7 @@
 <body>
     <div class="main-container">
         <div class="classes-nav">
-            <a href="select.php">Logout</a>
+            <a href="logout.php">Logout</a>
             <h1>Classes enrolled in</h1>
             <a href="classes.php" class="add-class-btn">+</a>
         </div>

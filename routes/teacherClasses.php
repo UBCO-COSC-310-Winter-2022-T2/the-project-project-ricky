@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <body>
@@ -13,7 +14,6 @@
             <input type="submit" value="Search">
         </form>
         <?php
-            session_start();
             include("dbConnection.php");
 
             // search input
