@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,6 @@
 
         <?php
             include 'dbConnection.php';
-            session_start();
             $username = $_SESSION['username'];
             $sql = "SELECT s.cname, teacher, s.school FROM sclass as s JOIN class as c ON s.cname=c.cname AND s.school=c.school WHERE s.username=?";
             $stmt = $conn->prepare($sql);

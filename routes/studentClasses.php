@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +32,6 @@
                     $school = $_POST['school'];
                     
                     include 'dbConnection.php';
-                    session_start();
                     $username = $_SESSION['username'];
 
                     $sql = "SELECT school, cname, teacher FROM class WHERE cname = ? AND school = ?"; // Update the query as needed
