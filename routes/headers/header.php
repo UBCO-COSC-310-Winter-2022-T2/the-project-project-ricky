@@ -9,9 +9,15 @@
 
 </head>
 <header class="header">
-    <img src="../img/eduPol_logo.PNG" alt="eduPoll Logo">
+    <a href='index.php'><img src="../img/eduPol_logo.PNG" alt="eduPoll Logo"></a>
         <div>
             <a href="signup.php" class="button">Create Account</a>
-            <a href="select.php" class="button">Login</a>
+            <?php
+                if(isset($_SESSION['username'])){
+                    echo "<a href='logout.php' class='button'>Logout</a>";
+                }else{
+                    echo "<a href='select.php' class='button'>Login</a>";
+                }
+            ?>
         </div>
 </header>

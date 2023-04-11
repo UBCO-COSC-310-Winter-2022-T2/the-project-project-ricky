@@ -1,3 +1,8 @@
+<?php
+    ob_start();
+    session_start();
+    $pwerror='';
+?>
 <!DOCTYPE html>
 <html>
     <body>
@@ -35,7 +40,7 @@
                     $_SESSION['username'] = $username;
                     $_SESSION['teacher'] = True;
                     // change link to homepage when ready
-                    header("Location: index.php");
+                    header("Location: teacherClasses.php");
                     exit;
                 } else {
                     $pwerror = "Incorrect username or password";
@@ -64,3 +69,6 @@
         </main>
     </body>
 </html>
+<?php
+    ob_end_flush();
+?>

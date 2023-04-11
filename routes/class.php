@@ -3,19 +3,12 @@
 session_start();
 include('dbConnection.php');
 
-// if(!isset($_GET['cname'], $_GET['school'])){
-//     die("null class");
-// }
-$cname = $_GET['cname'];
-$school = $_GET['school'];
-
-//for testing
-// $cname = "Test Class";
-// $school = "UBC";
-$_SESSION['cname'] = $cname;
-$_SESSION['school'] = $school;
-
-$errorMessage = "";
+if(isset($_SESSION['cname'])){
+    $cname = $_SESSION['cname'];
+}
+if(isset($_SESSION['school'])){
+    $school = $_SESSION['school'];
+}  
 //check of quiz exists
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -37,7 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bind_param("sss", $quiz, $cname, $school);
 
             if ($stmt->execute()) {
-                echo "New Quiz created successfully";
+                // echo "New Quiz created successfully";
+                $_SESSION['message']= "New quiz ".$quiz." created succesfully";
                 header('location: createQuiz.php');
                 exit;
             } else {
@@ -47,9 +41,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Error: " . $stmt->error;
     }
+
     $conn->close();
 }
+if(!isset($_GET['cname'], $_GET['school'])){
+    die("null class");
+} 
+$cname = $_GET['cname'];
+$school = $_GET['school'];
 
+//for testing
+// $cname = "Test Class";
+// $school = "UBC";
+$_SESSION['cname'] = $cname;
+$_SESSION['school'] = $school;
+
+$errorMessage = "";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -122,7 +129,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php endwhile; 
             endif;
     
-        $conn->close();
         ?>
     </table>
     <button onclick="showForm()">New Quiz</button>
