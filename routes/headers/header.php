@@ -11,11 +11,19 @@
 <header class="header">
     <a href='index.php'><img src="../img/eduPol_logo.PNG" alt="eduPoll Logo"></a>
         <div>
-            <a href="signup.php" class="button">Create Account</a>
+            
             <?php
+            include ('functions.php');
                 if(isset($_SESSION['username'])){
+                    $user = $_SESSION['username'];
+                    if(isTeacher($user)){
+                        echo "<a href='teacherClasses.php' class='button'>Teacher Portal</a>";
+                    }else{
+                        echo "<a href='studentportal.php' class='button'>Student Portal</a>";
+                    }
                     echo "<a href='logout.php' class='button'>Logout</a>";
                 }else{
+                    echo "<a href='signup.php' class='button'>Create Account</a>";
                     echo "<a href='select.php' class='button'>Login</a>";
                 }
             ?>
