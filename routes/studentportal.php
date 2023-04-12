@@ -26,11 +26,13 @@
 
             if($result->num_rows>0){
                 while($row = $result->fetch_assoc()){
+                    echo "<a href='studentclass.php?username=" . urlencode($username) . "&cname=" . urlencode($row["cname"]) . "&school=" . urlencode($row["school"]) . "&teacher=" . urlencode($row["teacher"]) . "' class='class-card-link'>";
                     echo "<div class='class-card'>";
                     echo "<h2>" . htmlspecialchars($row["cname"]) . "</h2>";
                     echo "<p>School: " . htmlspecialchars($row["school"]) . "</p>";
                     echo "<p>Instructor: " . htmlspecialchars($row["teacher"]) . "</p>";
                     echo "</div>";
+                    echo "</a>";
                 }
             }else{
                 echo "<p>No classes found. Click the + button to add some!</p>";

@@ -29,5 +29,16 @@ class Chat implements MessageComponentInterface {
                 $client->send($msg);
             }
         }
+        $data=json_encode($msg);
+        switch($data->command){
+            case 'startClass':
+                $response = array(
+                    'command' => 'startClass',
+                    'cname' => $data->cname,
+                    'school' => $data->school
+                );
+                $this->broadcast(json_encode($response));
+                break;
+        }
     }
 }

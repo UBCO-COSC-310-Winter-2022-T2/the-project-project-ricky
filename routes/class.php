@@ -97,6 +97,15 @@ $errorMessage = "";
         <?php endwhile; 
             endif;
         ?>
+        <tr>
+            <td colspan="3">
+                <form action='startclass.php' method='post'>
+                    <input type='hidden' name='cname' value='<?=$cname?>'>
+                    <input type='hidden' name='school' value='<?=$school?>'>
+                    <input type='submit' value='Start Class'>
+                </form>    
+            </td>   
+        </tr>
     </table>
 
     <h2>Quizzes</h2>
