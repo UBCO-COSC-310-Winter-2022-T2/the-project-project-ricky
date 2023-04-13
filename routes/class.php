@@ -9,7 +9,7 @@ if(isset($_SESSION['cname'])){
 if(isset($_SESSION['school'])){
     $school = $_SESSION['school'];
 }  
-//check of quiz exists
+//check if quiz exists
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $quiz = $_POST['qname'];//get this from form when creat quiz clicked

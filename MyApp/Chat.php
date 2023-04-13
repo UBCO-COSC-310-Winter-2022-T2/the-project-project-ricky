@@ -23,22 +23,46 @@ class Chat implements MessageComponentInterface {
     }
 
     public function onMessage(ConnectionInterface $from, $msg) {
-        // Handle the received message and send it to other clients
-        foreach ($this->clients as $client) {
-            if ($from !== $client) {
-                $client->send($msg);
+        $data = json_decode($msg, true);
+        
+
+        switch ($data['command']) {
+        case 'startClass':
+            $response = [
+                'command' => 'startClass',
+                'cname' => $data['cname'],
+                'school' => $data['school']
+            ];
+            $this->broadcast(json_encode($response));
+            break;
+        case 'testMessage':
+            $response = [
+                'command' => 'testMessage',
+                'message' => $data['message']
+            ];
+            $this->broadcast(json_encode($response));
+            break;
+        case 'joinClass':
+            $response = [
+                'command'=>'joinClass',
+                'cname' =>$data['cname'],
+                'school' => $data['school'],
+                'username' =>$data['username']
+            ];
+            $this->broadcast(json_encode($response));
+            break;
+        default:
+            foreach ($this->clients as $client) {
+                if ($from !== $client) {
+                    $client->send($msg);
+                }
             }
-        }
-        $data=json_encode($msg);
-        switch($data->command){
-            case 'startClass':
-                $response = array(
-                    'command' => 'startClass',
-                    'cname' => $data->cname,
-                    'school' => $data->school
-                );
-                $this->broadcast(json_encode($response));
-                break;
+    }
+    }
+    
+    private function broadcast($msg){
+        foreach($this->clients as $client){
+            $client->send($msg);
         }
     }
 }
