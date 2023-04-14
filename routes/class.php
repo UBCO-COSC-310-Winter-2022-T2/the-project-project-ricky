@@ -63,6 +63,7 @@ $errorMessage = "";
 <head>
     <meta charset="UTF-8">
     <title><?php echo $school. ": " .$cname; ?></title>
+    <link rel='stylesheet' href='../css/teacher-page.css'>
     <script>
         function showForm() {
             const form = document.getElementById("newQuizForm");
