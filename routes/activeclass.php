@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <body>
     <div id="studentsList">
@@ -8,6 +9,22 @@
                 <th>Student Username</th>
             </tr>
         </table>
+    </div>
+    <div id='list of quizzes'>
+        <table id ='quiz-list'>
+            <tr>
+                <th>Quiz Name</th>
+                <th>Action</th>
+            </tr>
+            <?php
+                include('dbConnection.php');
+                
+            ?>  
+
+        </table>
+        <?php
+
+        ?>
     </div>
 </body>
 

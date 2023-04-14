@@ -18,12 +18,6 @@ if (isset($_POST['cname']) && isset($_POST['school'])) {
    
    socket.addEventListener('open', (event) => {
       console.log(('Websocket connected: ', event));
-         const startClassData = {
-         command: 'startClass',
-         cname: '<?php echo $_POST['cname']; ?>',
-         school: '<?php echo $_POST['school']; ?>'
-         };
-         socket.send(JSON.stringify(startClassData));
    });
 
    testButton = document.getElementById('testButton');
