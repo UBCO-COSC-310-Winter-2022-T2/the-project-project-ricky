@@ -73,6 +73,13 @@ class Chat implements MessageComponentInterface {
             ];
             $this->broadcast(json_encode($response));
             break;
+        case 'stopQuiz':
+            $response = [
+                'command' =>'stopQuiz',
+                'correctAnswer'=>$data['correctAnswer']
+            ];
+            $this->broadcast(json_encode($response));
+            break;
         default:
             foreach ($this->clients as $client) {
                 if ($from !== $client) {

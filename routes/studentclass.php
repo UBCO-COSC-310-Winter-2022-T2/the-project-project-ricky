@@ -9,6 +9,36 @@
         echo "cname";
     } ?></title>
 </head>
+<style>
+      .grade, .attendance {
+            background-color: #f8f8f8;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 1em;
+            margin-bottom: 1em;
+            font-size: 18px;
+        }
+
+        .text {
+            font-size: 18px;
+            margin-bottom: 1em;
+        }
+
+        .joinButton {
+            background-color: #73d0b9;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .joinButton:hover {
+            background-color: #5fb398;
+        }
+</style>
 <script>
     const studentSocket = new WebSocket('ws://localhost:8080');
     studentSocket.addEventListener('message', (event) => {
@@ -31,6 +61,8 @@
                 window.location.href='activeSclass.php';
             };
             joinButtonDiv.appendChild(joinClassButton);
+            textbox = document.getElementById('text');
+            textbox.style.display = 'none';
         }
     });
 </script>
@@ -42,8 +74,8 @@
         </div>
         <div class="grade">Grade</div>
         <div class="attendance">Attendance</div>
-        <div class="text">Wait for your teacher to start the class</div>
+        <div class="text" id='text'>Wait for your teacher to start the class</div>
         <div id='joinButton'></div>
-
+    </div>
 
 </body> 
