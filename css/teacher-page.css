@@ -1,0 +1,75 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin: 20px 0;
+}
+
+h2 {
+    margin: 20px 0;
+}
+
+table {
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+table, th, td {
+    border: 1px solid white;
+    padding: 10px;
+}
+
+th {
+    background-color: #73d0b9;
+}
+
+button {
+    background-color: #73d0b9;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 6px 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+}
+
+input[type="submit"] {
+    background-color: #73d0b9;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+form input[type="submit"] {
+    margin-right: 10px;
+}

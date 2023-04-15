@@ -22,3 +22,6 @@ RUN composer install
 
 # Copy the entire project folder to the container
 COPY . .
+
+# Copy the WebSocket test server file
+COPY websocket_test_server.php /var/www/html/websocket_test_server.php

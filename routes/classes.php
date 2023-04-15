@@ -35,6 +35,6 @@
             // <div id="suggestions" class="suggestions"></div>
             ?>
     </div>
-</form>
+
 </body>
 </html>

@@ -9,7 +9,7 @@ if(isset($_SESSION['cname'])){
 if(isset($_SESSION['school'])){
     $school = $_SESSION['school'];
 }  
-//check of quiz exists
+//check if quiz exists
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $quiz = $_POST['qname'];//get this from form when creat quiz clicked
@@ -63,6 +63,7 @@ $errorMessage = "";
 <head>
     <meta charset="UTF-8">
     <title><?php echo $school. ": " .$cname; ?></title>
+    <link rel='stylesheet' href='../css/teacher-page.css'>
     <script>
         function showForm() {
             const form = document.getElementById("newQuizForm");
@@ -97,6 +98,15 @@ $errorMessage = "";
         <?php endwhile; 
             endif;
         ?>
+        <tr>
+            <td colspan="3">
+                <form action='startclass.php' method='post'>
+                    <input type='hidden' name='cname' value='<?=$cname?>'>
+                    <input type='hidden' name='school' value='<?=$school?>'>
+                    <input type='submit' value='Start Class'>
+                </form>    
+            </td>   
+        </tr>
     </table>
 
     <h2>Quizzes</h2>
