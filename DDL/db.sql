@@ -10,16 +10,16 @@ GRANT ALL PRIVILEGES ON edupol.* TO 'cosc310user'@'%';
 CREATE TABLE student(
     username VARCHAR(256) NOT NULL,
     password VARCHAR(256) NOT NULL,
-    firstName VARCHAR(256) NOT NULL,
-    lastName VARCHAR(256) NOT NULL,
+    firstName VARCHAR(256),
+    lastName VARCHAR(256),
     email VARCHAR(256) NOT NULL,
     PRIMARY KEY (username)
 );
 CREATE TABLE teacher(
     username VARCHAR(256) NOT NULL,
     password VARCHAR(256) NOT NULL,
-    firstName VARCHAR(256) NOT NULL,
-    lastName VARCHAR(256) NOT NULL,
+    firstName VARCHAR(256) ,
+    lastName VARCHAR(256),
     email VARCHAR(256) NOT NULL,
     school VARCHAR(256) NOT NULL,
     PRIMARY KEY (username)
