@@ -1,6 +1,8 @@
 # Final Report
 
-![edupol logo here](/img/eduPol_logo.PNG)
+![edupol logo](/img/eduPol_logo.PNG)
+
+[**Demo Video:**](https://youtu.be/cp3kB4SLpCU)
 
 ## General Development
 
